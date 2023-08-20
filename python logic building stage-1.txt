@@ -1,0 +1,378 @@
+1. Swap 2 variable without using 3rd variable .(three answer)
+_______________________________________________________________________
+
+a = 5
+b = 10
+
+print("before swapping:")
+print("a =", a)
+print("b =", b)
+
+
+a = a + b
+b = a - b
+a = a - b
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
+
+_______________________________________________________________________
+
+a = 5
+b = 10
+
+print("before swapping:")
+print("a =", a)
+print("b =", b)
+
+a = a ^ b
+b = a ^ b
+a = a ^ b
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
+
+_______________________________________________________________________
+
+a = 5
+b = 10
+
+print("before swapping:")
+print("a =", a)
+print("b =", b)
+
+a, b = b, a
+
+print("After swapping:")
+print("a =", a)
+print("b =", b)
+_______________________________________________________________________
+
+
+Q.2. Accept three no and find out the highest no. 
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Compare the numbers to find the highest
+if num1 >= num2 and num1 >= num3:
+    highest = num1
+elif num2 >= num1 and num2 >= num3:
+    highest = num2
+else:
+    highest = num3
+
+# Print the highest number
+print("The highest number is:", highest)
+
+_______________________________________________________________________
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Compare the numbers to find the highest
+if num1 >= num2 and num1 >= num3:
+    highest = num1
+elif num2 >= num1 and num2 >= num3:
+    highest = num2
+else:
+    highest = num3
+
+# Print the highest number
+print("The highest number is:", highest)
+
+
+_______________________________________________________________________
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Find the highest number using the max() function
+highest = max(num1, num2, num3)
+
+# Print the highest number
+print("The highest number is:", highest)
+
+
+_______________________________________________________________________
+
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Create a list with the three numbers
+numbers = [num1, num2, num3]
+
+# Sort the list in descending order
+numbers.sort(reverse=True)
+
+# The first element in the sorted list is the highest number
+highest = numbers[0]
+
+# Print the highest number
+print("The highest number is:", highest)
+
+
+_______________________________________________________________________
+
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Use nested ternary operators to find the highest number
+highest = num1 if (num1 >= num2 and num1 >= num3) else (num2 if num2 >= num3 else num3)
+
+# Print the highest number
+print("The highest number is:", highest)
+____________________________________________________________________________
+
+from functools import reduce
+
+# Accept three numbers from the user
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+# Define a function to find the maximum of two numbers
+def find_max(x, y):
+    return x if x >= y else y
+
+# Use functools.reduce() to find the highest number
+highest = reduce(find_max, [num1, num2, num3])
+
+# Print the highest number
+print("The highest number is:", highest)
+____________________________________________________________________________
+____________________________________________________________________________
+
+Accept a number from user -if it is visible by 3 print “three”, if it is divisible by 7 print “seven” and if it is 
+divisible by both (3,7) print “three-seven”
+
+
+# Accept a number from the user
+number = int(input("Enter a number: "))
+
+# Check divisibility by 3 and 7
+if number % 3 == 0 and number % 7 == 0:
+    print("three-seven")
+elif number % 3 == 0:
+    print("three")
+elif number % 7 == 0:
+    print("seven")
+else:
+    print("Number is not divisible by 3 or 7")
+
+____________________________________________________________________________
+
+
+# Accept a number from the user
+number = int(input("Enter a number: "))
+
+# Define a dictionary for divisibility conditions and messages
+divisibility_messages = {
+    (True, False): "three",
+    (False, True): "seven",
+    (True, True): "three-seven",
+}
+
+# Check divisibility by 3 and 7 using the dictionary
+divisible_by_3 = number % 3 == 0
+divisible_by_7 = number % 7 == 0
+
+# Look up the appropriate message from the dictionary
+message = divisibility_messages.get((divisible_by_3, divisible_by_7), "Number is not divisible by 3 or 7")
+
+# Print the message
+print(message)
+
+____________________________________________________________________________
+
+Accept a number from user check if it is odd or even number.
+
+# Accept a number from the user
+number = int(input("Enter a number: "))
+
+# Divide the number by 2 and check the remainder
+if (number // 2) * 2 == number:
+    print("Even")
+else:
+    print("Odd")
+_____________________________________________________________________________
+
+# Accept a number from the user
+number = int(input("Enter a number: "))
+
+# Check if the least significant bit is 0 (even) or 1 (odd)
+if number & 1 == 0:
+    print("Even")
+else:
+    print("Odd")
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Accept a number from the user
+number = int(input("Enter a number: "))
+
+# Check if the number is odd or even using the modulus operator
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+___________________________________________________________________________-
+
+def find_min_sequence(input_string):
+    sequences = input_string.split("0")  # Split the string on "0"
+    sequences = [seq for seq in sequences if "1" in seq]  # Keep only sequences with "one"
+    
+    if not sequences:
+        return -1  # No "one" found
+    
+    return min(len(seq) for seq in sequences)
+
+# Sample inputs
+input1 = "11000100001111111"
+input2 = "00011"
+
+# Calculate and print the results
+result1 = find_min_sequence(input1)
+result2 = find_min_sequence(input2)
+
+print("Sample 1:", result1)
+print("Sample 2:", result2)
+
+____________________________________________________________________________
+
+Q1 Accept 10 numbers from user and do sum of it.(do not use array)
+
+sum=0
+for i in range (1,11):
+    a=int(input(f"enter the number-{i}--"))
+    sum=sum+a
+print(sum)
+
+__________________________________________________________________________
+
+Q2 Accept a number from user and find a factorial of a number
+
+a=int(input("enter a number"))
+fact=1
+for i in range (1,a+1):
+    fact=fact*i
+print(fact)
+
+___________________________________________________________________________
+
+
+Q.3 Accept a number from user and do sum of digit.
+
+sum=0
+a= int(input("enter a number"))
+for i in str(a):
+    sum = sum + int(i)
+print(sum)
+
+____________________________________________________________________________
+
+Q.4 Accept a number from user and count number of digits
+
+a=int(input("enter a number"))
+
+print("length of inserted number is",len(str(a)))
+
+____________________________________________________________________________
+
+
+Q.5 Accept a number from user and reverse it.
+
+digit=0
+a=int(input("enter a number"))
+while a!=0:
+    rev=a%10
+    digit=digit*10+rev
+    a=a//10
+print(digit)
+
+____________________________________________________________________________
+
+Q.6 Accept a number from user and check if it is palindrome number or not eg (121)
+
+digit=0
+a=int(input("enter a number"))
+b=a
+while a!=0:
+    rev=a%10
+    digit=digit*10+rev
+    a=a//10
+print(digit) 
+if b==digit:
+    print("palindrome")
+else:
+    print("not a palindrome")
+
+____________________________________________________________________________
+
+Q.7 Accept a number from user and print next 5 number
+
+a=int(input("enter a number"))
+for i in range(a+1,a+6):
+    print(i)
+
+____________________________________________________________________________
+
+Q.8 Accept a number from user and print that many numbers after the number.
+
+
+a=int(input("enter a number"))
+for i in range(a+1,(a*2)+1):
+    print(i)
+____________________________________________________________________________
+
+Q.9 Accept term from user and print Fibonacci series.
+
+a=[0,1]
+for i in range(6):
+    b=a[-1]+a[-2]
+    a.append(b)
+print(a)
+
+____________________________________________________________________________
+
+Q.10 Accept 10 numbers from user and print highest number.
+
+b=[]
+for i in range(11):
+    a=int(input("enter a number"))
+    b.append(a)
+print(max(b))
+____________________________________________________________________________
+Q.11 Accept 10 numbers from user and print lowest number.
+
+b=[]
+for i in range(11):
+    a=int(input("enter a number"))
+    b.append(a)
+print(min(b))
+
+____________________________________________________________________________
+Q.12 Accept 10 numbers from user and print highest and 2nd highest number
+
+b=[]
+c=b
+for i in range(11):
+    a=int(input("enter a number"))
+    b.append(a)
+
+print(c)
+print("highest num is ",max(b))
+b.remove(max(b))
+print("second highest no is ",max(b))
+
+
+
+____________________________________________________________________________
